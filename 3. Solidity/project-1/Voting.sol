@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title A voting system
- * @author Arnaud SENE
+ * @author Arnaud Sene
  * @notice This contract is only for exercise
  */
 contract Voting is Ownable {
@@ -23,7 +23,7 @@ contract Voting is Ownable {
         uint voteCount;
     }
 
-    /// @dev A list of workflow status during votation
+    /// @dev A Enum of workflow status during the votation process
     enum WorkflowStatus {
         RegisteringVoters,
         ProposalsRegistrationStarted,
@@ -39,9 +39,9 @@ contract Voting is Ownable {
     /// @dev stores proposal struct, description and winner
     Proposal[] private _proposals;
     mapping(string => bool) private _proposalDescriptions;
-    uint256 private winningProposalId;
+    uint256 winningProposalId;
 
-    /// @dev Represent the Workflow status at runtime
+    /// @dev This represent the Workflow status at runtime
     WorkflowStatus private _workflowStatus;
 
     event VoterRegistered(address voterAddress);
